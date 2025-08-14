@@ -4,13 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Posts from './components/Posts'
 import { Users } from './components/Users'
+import Parallel from './components/Parallel'
 
 function App() {
 
   return (
     <>
-      <Posts/>
+      {/* <Posts/>
       <Users/>
+       */}
+      <Parallel/>
     </>
   )
 }
