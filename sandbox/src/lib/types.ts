@@ -11,3 +11,11 @@ export interface User {
     username : string
     email : string
 }
+
+export interface Comment {
+    postId : number
+    id : number
+    name : string
+    email : string
+    body : string
+}

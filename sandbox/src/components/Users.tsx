@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import type { User } from "../types/types"
+import type { User } from "../lib/types"
 import { getUsers } from "../utils/api"
 
 

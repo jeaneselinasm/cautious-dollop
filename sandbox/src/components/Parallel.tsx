@@ -1,6 +1,6 @@
 import { useQueries, type UseQueryResult } from "@tanstack/react-query"
 import { getPosts, getUsers } from "../utils/api"
-import type { Post, User } from "../types/types"
+import type { Post, User } from "../lib/types"
 
 
 const Parallel = () => {
