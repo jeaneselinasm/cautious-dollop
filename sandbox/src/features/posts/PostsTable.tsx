@@ -14,9 +14,9 @@ export default function PostsTable({ onSelect }: { onSelect: (id: number) => voi
   const { data = [], isLoading, isFetching } = usePosts(page, pageSize)
 
 
-  const createMutation = useCreatePost(page, pageSize)
-  const updateMutation = useUpdatePost(page, pageSize)
-  const deleteMutation = useDeletePost(page, pageSize)
+  const createMutation = useCreatePost()
+  const updateMutation = useUpdatePost()
+  const deleteMutation = useDeletePost()
 
   // local UI state for  editing
 
@@ -25,32 +25,7 @@ export default function PostsTable({ onSelect }: { onSelect: (id: number) => voi
 
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
-  // const columns = useMemo<ColumnDef<Post>[]>(() => [
-  //   { accessorKey: 'id', header: 'ID' },
-  //   { accessorKey: 'title', header: 'Title' },
-  //   {
-  //     id: 'actions',
-  //     header: 'Actions',
-  //     cell: ({ row }) => (
-  //       <div className="flex gap-2">
-  //         <button
-  //           onClick={() => console.log('edit', row.original)}
-  //           className="px-2 py-1 border rounded"
-  //         >Edit</button>
-  //         <button
-  //           onClick={() => console.log('Delete', row.original.id)}
-  //           className="px-2 py-1 border rounded text-red-600"
-  //         >Delete</button>
-  //         <button
-  //           onClick={() => onSelect(row.original.id)}
-  //           className="px-2 py-1 rounded bg-gray-100"
-  //         >
-  //           Details
-  //         </button>
-  //       </div>
-  //     ),
-  //   },
-  // ], [onSelect])
+
 
   const columns = useMemo<ColumnDef<Post>[]>(() => [
     { accessorKey: 'id', header: 'ID' },
@@ -152,60 +127,7 @@ export default function PostsTable({ onSelect }: { onSelect: (id: number) => voi
   }
 
   return (
-    // <div className="bg-white rounded-xl shadow p-4">
-    //   <div className="flex items-center justify-between mb-3">
-    //     <h2 className="text-lg font-medium ">Posts (page {page}) </h2>
-    //     {isFetching && <span className="text-sm text-gray-500"> refreshing.. </span>}
-    //   </div>
 
-    //   <table className="w-full text-justify border-collapse">
-    //     <thead className="bg-gray-100">
-    //       {table.getHeaderGroups().map(hg => (
-    //         <tr key={hg.id}>
-    //           {hg.headers.map(header => (
-    //             <th key={header.id} className="px-3 py-2 border-b">
-    //               {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-    //             </th>
-    //           ))}
-    //         </tr>
-    //       ))}
-    //     </thead>
-    //     <tbody>
-    //       {isLoading ? (
-    //         <tr><td className="p-4" colSpan={columns.length}>Loading…</td></tr>
-    //       ) : data.length === 0 ? (
-    //         <tr><td className="p-4" colSpan={columns.length}>No data</td></tr>
-    //       ) : (
-    //         table.getRowModel().rows.map(row => (
-    //           <tr key={row.id} className="hover:bg-gray-50">
-    //             {row.getVisibleCells().map(cell => (
-    //               <td key={cell.id} className="px-3 py-2 border-b">
-    //                 {flexRender(cell.column.columnDef.cell, cell.getContext())}
-    //               </td>
-    //             ))}
-    //           </tr>
-    //         ))
-    //       )}
-    //     </tbody>
-    //   </table>
-
-    //   <div className="flex items-center gap-2 mt-4">
-    //     <button
-    //       className="px-3 py-1 border rounded disabled:opacity-50"
-    //       onClick={() => setPage(p => Math.max(1, p - 1))}
-    //       disabled={page === 1}
-    //     >
-    //       Prev
-    //     </button>
-    //     <button
-    //       className="px-3 py-1 border rounded"
-    //       onClick={() => setPage(p => p + 1)}
-    //     >
-    //       Next
-    //     </button>
-    //   </div>
-
-    // </div>
     <div className="bg-white rounded-xl shadow p-4">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-lg font-medium">Posts (page {page})</h2>
